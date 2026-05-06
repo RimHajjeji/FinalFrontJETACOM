@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -11,8 +11,6 @@ import {
 } from "react-router-dom";
 
 /* ===== SITE PUBLIC ===== */
-import Offers from "./components/Offers/Offers";
-import Loader from "./components/Loader/Loader";
 import Contacts from "./admin/pages/Contacts";
 import NetworkBackground from "./components/Background/NetworkBackground";
 import Navbar from "./components/Navbar/Navbar";
@@ -51,7 +49,6 @@ function ForceHomeOnReload() {
   return null;
 }
 
-/* 🎥 Scroll forcé sur la Hero Video */
 function ScrollToHeroOnLoad() {
   const location = useLocation();
 
@@ -73,8 +70,6 @@ function ScrollToHeroOnLoad() {
 /* ================= APP ================= */
 
 function App() {
-  const [done, setDone] = useState(false);
-
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -87,7 +82,6 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
 
-        {/* 🔒 UTILITAIRES (hors admin) */}
         <ForceHomeOnReload />
         <ScrollToHeroOnLoad />
 
@@ -102,19 +96,18 @@ function App() {
 
         <Routes>
 
-          {/* ===== SITE PUBLIC ===== */}
+          {/* ===== HOME ===== */}
           <Route
             path="/"
             element={
               <>
                 <div id="hero">
-                  <HeroVideo start={done} />
+                  <HeroVideo start={true} />
                 </div>
-                <Welcome appReady={done} />
+                <Welcome appReady={true} />
                 <Values />
                 <LaunchSection />
                 <Services />
-                <Offers />
                 <ContactSection />
                 <Footer />
               </>
@@ -123,24 +116,18 @@ function App() {
 
           <Route path="/services/drone" element={<DroneService />} />
 
-         {/* ===== ADMIN ===== */}
-<Route path="/admin/login" element={<AdminLogin />} />
+          {/* ===== ADMIN ===== */}
+          <Route path="/admin/login" element={<AdminLogin />} />
 
-<Route element={<AdminPrivateRoute />}>
-  <Route element={<AdminLayout />}>
-    <Route path="/admin/dashboard" element={<AdminDashboard />} />
-    <Route path="/admin/contacts" element={<Contacts />} />
-    <Route path="/admin/newsletter" element={<Newsletter/>} />
-  </Route>
-</Route>
-
+          <Route element={<AdminPrivateRoute />}>
+            <Route element={<AdminLayout />}>
+              <Route path="/admin/dashboard" element={<AdminDashboard />} />
+              <Route path="/admin/contacts" element={<Contacts />} />
+              <Route path="/admin/newsletter" element={<Newsletter />} />
+            </Route>
+          </Route>
 
         </Routes>
-
-        {/* ⏳ Loader seulement pour le site public */}
-        {!done && !window.location.pathname.startsWith("/admin") && (
-          <Loader onFinish={() => setDone(true)} />
-        )}
 
       </BrowserRouter>
     </AuthProvider>

@@ -284,7 +284,7 @@ useEffect(() => {
       </div>
 
       <div className="footer-bottom">
-        Jetacom © 2026 — Tous droits réservés
+       Réalisé par les développeurs de Jetacom © 2026 — Tous droits réservés
       </div>
     </footer>
   );
