@@ -1,0 +1,66 @@
+.newsletter-admin {
+  color: #e5e7eb;
+}
+
+/* Titre */
+.newsletter-admin h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #22c55e; /* vert principal */
+}
+
+/* Table */
+.newsletter-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  background: linear-gradient(
+    180deg,
+    #0b0f0d,
+    #050806
+  );
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Cellules */
+.newsletter-table th,
+.newsletter-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Header table */
+.newsletter-table thead {
+  background: rgba(34, 197, 94, 0.08);
+  color: #86efac;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 12px;
+}
+
+/* Lignes */
+.newsletter-table tbody tr {
+  border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+  transition: background 0.2s ease;
+}
+
+.newsletter-table tbody tr:hover {
+  background: rgba(34, 197, 94, 0.07);
+}
+
+/* Loading */
+.admin-loading {
+  color: #86efac;
+  font-weight: 500;
+}
+
+/* Error */
+.admin-error {
+  color: #f87171;
+  font-weight: 500;
+}

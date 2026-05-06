@@ -1,0 +1,409 @@
+.offers-section {
+  padding: 90px 8%;
+  color: rgb(215, 225, 215);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.offers-section.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.offers-section h2 {
+    font-size: 1.13rem;;
+  letter-spacing: 0.4em;
+  font-weight: 500;
+  color: #06c36b; 
+  margin-bottom: 40px;
+  text-align: center; 
+  position: relative; 
+  
+}
+
+.offers-section.animate h2::after {
+  width: 100%;
+}
+
+.offers-subtitle {
+  opacity: 0;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  transform: translateY(20px);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+}
+
+.offers-section.animate .offers-subtitle {
+  opacity: 0.8;
+  transform: translateY(0);
+}
+
+/* GRILLE */
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 330px);
+  justify-content: center;
+  
+  gap: 80px;
+}
+
+.offers-grid.second-line {
+  grid-template-columns: repeat(2, 330px);
+  margin-top: 60px;
+ 
+}
+
+/* CARTE */
+.offer-card {
+margin-top: 10px;
+  width: 330px;
+  height: 440px;
+  border-radius: 26px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1), opacity 1s ease, transform 1s ease;
+  opacity: 0;
+  transform: translateY(30px);
+   
+}
+
+.offer-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover */
+.offer-card:hover {
+  transform: scale(1.08) rotateX(8deg) rotateY(-8deg);
+}
+
+/* Image */
+.offer-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+  transition: 0.6s ease;
+  
+}
+
+.offer-card:hover .offer-bg {
+  transform: scale(1.15);
+  filter: brightness(1);
+}
+
+/* Overlay */
+.offer-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(237, 247, 237, 0.7), transparent);
+}
+
+.offer-overlay h3 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.offer-overlay span {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #7edf85;
+  text-transform: uppercase;
+}
+
+.offer-overlay h3,
+.offer-overlay span {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s ease;
+ 
+}
+
+.offer-card:hover h3,
+.offer-card:hover span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Float animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.offer-card:nth-child(1) { animation: float 6s ease-in-out infinite; animation-delay: 0s; }
+.offer-card:nth-child(2) { animation: float 6s ease-in-out infinite; animation-delay: 1s; }
+.offer-card:nth-child(3) { animation: float 6s ease-in-out infinite; animation-delay: 2s; }
+.offer-card:nth-child(4) { animation: float 6s ease-in-out infinite; animation-delay: 3s; }
+.offer-card:nth-child(5) { animation: float 6s ease-in-out infinite; animation-delay: 4s; }
+
+/* MODAL */
+.offer-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(34, 48, 34, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.offer-modal-content {
+  width: 420px;
+  background: rgba(124, 184, 122, 0.2);
+  border-radius: 24px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  animation: zoomIn 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.offer-modal-content img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.offer-modal-content h2 {
+  margin: 20px 0 10px;
+  color: #d5e1d6;
+}
+
+.offer-modal-content p {
+  opacity: 0.8;
+  font-size: 14px;
+  color: #d5e1d6;
+}
+
+/* Bouton fermer */
+.offer-modal-content button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 42px;
+  height: 42px;
+  background: #7edf85;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Zoom animation */
+@keyframes zoomIn {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+/* ============================= */
+/* TITRE STYLE NOS VALEURS */
+/* ============================= */
+
+/* Ligne verte → foncée (la vraie ligne) */
+.promo-line {
+ display: block;
+  width: 260px;
+  height: 3px;
+  margin: 18px auto 0 auto; 
+  background: linear-gradient(90deg, var(--primary), #000); 
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.6);
+}
+
+
+/* Animation de la ligne */
+@keyframes promoLineDraw {
+  from {
+    width: 0%;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+/* Zone globale */
+.offers-section {
+  padding: 0px 0;
+  text-align: center;
+}
+
+/* Zone des cartes avec le background */
+.offers-content {
+  background: rgba(51, 67, 43, 0.9);
+  padding: 80px 20px 120px 20px; /* padding interne */
+  
+  /* contrôle largeur et centrage */
+  max-width: 1320px; 
+  margin: 0 auto;    /* centre le background */
+  
+  /* arrondir les coins */
+  border-radius: 30px; /* coins arrondis */
+  
+  /* optionnel : ajouter un petit shadow pour relief */
+  box-shadow: 0 8px 20px rgba(155, 37, 37, 0.2);
+}
+
+/* Grilles */
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 330px);
+  justify-content: center;
+  gap: 80px;
+}
+
+.offers-grid.second-line {
+  grid-template-columns: repeat(2, 330px);
+  margin-top: 65px;
+}
+
+.offer-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* hauteur du dégradé */
+  pointer-events: none;
+  border-radius: 0 0 20px 20px; /* arrondir les coins du bas pour suivre la carte */
+  background: linear-gradient(to top, rgba(222, 225, 222, 0.4), transparent);
+}
+
+
+/* ============================= */
+/* RESPONSIVE TABLETTE & MOBILE */
+/* ============================= */
+
+/* TABLETTES (≤ 1024px) */
+@media (max-width: 1024px) {
+  .offers-content {
+    padding: 60px 20px 90px;
+    border-radius: 24px;
+  }
+
+  .offers-grid {
+    grid-template-columns: repeat(2, 300px);
+    gap: 50px;
+  }
+
+  .offers-grid.second-line {
+    grid-template-columns: repeat(2, 300px);
+    margin-top: 50px;
+  }
+
+  .offer-card {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+/* MOBILES & TABLETTES (≤ 768px) */
+@media (max-width: 768px) {
+
+  /* SECTION */
+  .offers-section {
+    padding: 70px 20px;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .offers-header {
+    padding-bottom: 40px;
+  }
+
+  /* Ligne promo visible sans animation */
+  .promo-line {
+    bottom: -18px;
+    height: 3px;
+    opacity: 1;
+    animation: none;
+  }
+
+  /* ❌ SUPPRIMER LE BACKGROUND VERT */
+  .offers-content {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  /* GRILLES */
+  .offers-grid,
+  .offers-grid.second-line {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+
+  /* CARTES */
+  .offer-card {
+    width: 100%;
+    max-width: 320px; /* ✅ largeur réduite sur mobile */
+    margin: 0 auto;   /* ✅ centrage */
+    height: 500px;
+    opacity: 1;
+    transform: none;
+    transition: none;
+
+    /* FLOAT ACTIF COMME PC */
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* delays float identiques PC */
+  .offer-card:nth-child(1) { animation-delay: 0s; }
+  .offer-card:nth-child(2) { animation-delay: 1s; }
+  .offer-card:nth-child(3) { animation-delay: 2s; }
+  .offer-card:nth-child(4) { animation-delay: 3s; }
+  .offer-card:nth-child(5) { animation-delay: 4s; }
+
+  /* Désactiver hover 3D */
+  .offer-card:hover {
+    transform: none;
+  }
+}
+
+/* PETITS MOBILES (≤ 480px) */
+@media (max-width: 480px) {
+
+  .offers-section h2 {
+    font-size: 18px;
+    letter-spacing: 4px;
+  }
+
+  .offers-grid,
+  .offers-grid.second-line {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .offer-card {
+    max-width: 340px; /* ✅ légèrement plus large en 1 colonne */
+    height: 500px;
+    border-radius: 20px;
+
+    /* float toujours actif */
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* MODAL */
+  .offer-modal-content {
+    width: 90%;
+    padding: 16px;
+  }
+
+  .offer-modal-content button {
+    top: -12px;
+    right: -12px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}

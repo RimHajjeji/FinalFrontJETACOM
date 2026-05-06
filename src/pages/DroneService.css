@@ -1,0 +1,172 @@
+/* =========================
+   PAGE
+========================= */
+.ds-page {
+  min-height: 100vh;
+  padding: 140px 8%;
+  color: #fff;
+}
+ 
+ 
+/* 🌌 CONTAINER */
+.ds-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 90px 80px 110px;
+  border-radius: 28px;
+
+  background: rgba(20, 40, 28, 0.7);
+  backdrop-filter: blur(22px);
+  box-shadow:
+    0 0 120px rgba(0, 255, 140, 0.25),
+    inset 0 0 80px rgba(0, 255, 140, 0.08);
+
+  opacity: 0;
+  transform: scale(0.85) rotateX(20deg) translateY(80px);
+  filter: blur(18px);
+  transition: all 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ds-container.open {
+  opacity: 1;
+  transform: scale(1) rotateX(0) translateY(0);
+  filter: blur(0);
+}
+
+/* =========================
+   ANIMATION TEXT & IMAGE
+========================= */
+.ds-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(6px);
+  animation: textReveal 1s ease forwards;
+}
+
+.ds-animate.show {
+  /* déclenche l'animation via JS */
+}
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* =========================
+   HEADER
+========================= */
+.ds-header h1 {
+  font-size: 2.4rem;
+  color: #25e189;
+  margin-bottom: 24px;
+}
+
+.ds-header p {
+  max-width: 720px;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* =========================
+   HEADER ICONE DRONE FLOTTE
+========================= */
+.ds-title-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.drone-icon {
+  font-size: 56px; /* un peu plus grande */
+  color: #25e189;
+  transform: rotate(-10deg);
+  animation: drone-float 3s ease-in-out infinite alternate,
+             drone-rotate 6s linear infinite;
+}
+
+/* Flotte doucement et rebond subtil */
+@keyframes drone-float {
+  0% { transform: translateY(0) rotate(-10deg); }
+  50% { transform: translateY(-8px) rotate(-10deg); }
+  100% { transform: translateY(0) rotate(-10deg); }
+}
+
+/* Rotation continue autour de Y */
+@keyframes drone-rotate {
+  0% { transform: translateY(0) rotateY(0deg) rotate(-10deg); }
+  50% { transform: translateY(-4px) rotateY(180deg) rotate(-10deg); }
+  100% { transform: translateY(0) rotateY(360deg) rotate(-10deg); }
+}
+
+/* Inclinaison du titre et premier paragraphe */
+.ds-tilt {
+  transform: rotate(-2deg);
+  display: inline-block;
+  transform-origin: left top;
+}
+
+/* =========================
+   SERVICES
+========================= */
+.ds-services {
+  margin-top: 80px;
+}
+
+.ds-services h2 {
+  font-size: 1.5rem;
+  margin-bottom: 35px;
+}
+
+.ds-services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.ds-services li {
+  list-style: none;
+  margin-bottom: 18px;
+  opacity: 0.9;
+}
+
+.ds-services span {
+  color: #25e189;
+}
+
+/* =========================
+   PROCESS
+========================= */
+.ds-process {
+  margin-top: 90px;
+}
+
+.ds-process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 40px;
+}
+
+.ds-process-steps p {
+  line-height: 2;
+  opacity: 0.9;
+}
+
+/* =========================
+   IMAGES
+========================= */
+.ds-process-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.ds-process-images img {
+  width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+}

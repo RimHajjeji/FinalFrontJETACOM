@@ -1,0 +1,197 @@
+/* ================= SECTION ================= */
+.welcome-section {
+  min-height: 95vh;
+  padding: 100px 8%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ================= GRID ================= */
+.welcome-grid {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 100px;
+  align-items: center;
+}
+
+/* ================= BRAND TITLE (Non utilisé mais conservé) ================= */
+.brand-title {
+  font-size: 2rem;
+  letter-spacing: 0.45em;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.brand-title .jeta {
+  color: #09e27d;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}
+
+.brand-title .com {
+  color: #ffffff;
+}
+
+/* ================= SIGNATURE (Non utilisé mais conservé) ================= */
+.signature {
+  font-size: 1.1rem;
+  letter-spacing: 0.35em;
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #09e27d;
+}
+
+/* ================= INTRO (Non utilisé mais conservé) ================= */
+.intro-line {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title {
+  font-size: 1rem;
+  letter-spacing: 0.35em;
+  font-weight: 500;
+  color: #06c36b;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.section-title .underline {
+  display: block;
+  width: 180px;
+  height: 3px;
+  margin-top: 16px;
+  background: linear-gradient(90deg, #06c36b, #000);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}
+
+/* ================= TEXTE ================= */
+.welcome-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 22px;
+  max-width: 720px;
+}
+
+.welcome-text span {
+  color: #00ff88;
+}
+
+/* ================= BOUTON ================= */
+.welcome-button {
+  background: linear-gradient(90deg, #172f18, #47a456);
+  color: white;
+  border: none;
+  padding: 11px 44px;
+  border-radius: 50px;
+  width: 6cm;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px 0 #649c64;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Grands écrans mais plus petits que desktop full */
+@media (max-width: 1200px) {
+  .welcome-grid {
+    gap: 80px;
+  }
+}
+
+/* Tablettes / écrans moyens */
+@media (max-width: 900px) {
+  .welcome-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .welcome-content {
+    text-align: center;
+  }
+
+  .section-title .underline {
+    margin: 16px auto 0 auto;
+  }
+
+  .welcome-button {
+    margin: 0 auto;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .welcome-section {
+    padding: 80px 5%;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .welcome-text {
+    font-size: 0.95rem;
+  }
+
+  .welcome-button {
+    padding: 9px 22px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+  .welcome-section {
+    padding: 60px 4%;
+  }
+
+  .section-title {
+    font-size: 1rem;
+  }
+
+  .welcome-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .welcome-button {
+    width: 4.5cm;
+    padding: 9px 25px;
+  }
+}
+
+/* Très petits mobiles */
+@media (max-width: 360px) {
+  .welcome-section {
+    padding: 50px 3%;
+  }
+
+  .section-title {
+    font-size: 0.9rem;
+  }
+
+  .welcome-text {
+    font-size: 0.85rem;
+  }
+
+  .welcome-button {
+    width: 4cm;
+    padding: 8px 20px;
+  }
+}

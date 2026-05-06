@@ -1,0 +1,63 @@
+.dashboard h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #22c55e; /* vert principal */
+  margin-bottom: 32px;
+}
+
+/* ===== STATS GRID ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ===== STAT CARD ===== */
+.stat-card {
+  background: linear-gradient(180deg, #020617, #022c22);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 18px;
+  padding: 26px;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* SUBTLE GLOW LINE */
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(34, 197, 94, 0.15),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* TITLE */
+.stat-card h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #6ee7b7;
+  margin-bottom: 10px;
+}
+
+/* VALUE */
+.stat-card p {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ecfdf5;
+}
+
+/* HOVER EFFECT */
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(34, 197, 94, 0.35);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}

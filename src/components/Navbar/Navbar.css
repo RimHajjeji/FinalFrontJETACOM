@@ -1,0 +1,308 @@
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0 clamp(16px, 5vw, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ================= DESKTOP ONLY (PC) ================= */
+@media (min-width: 1024px) {
+  .navbar {
+    padding-right: 60px; /* ➜ plus d'espace à droite */
+  }
+}
+
+
+/* LEFT */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+/* LOGO */
+.navbar-logo {
+  width: clamp(110px, 12vw, 150px);
+  height: auto;
+}
+
+.navbar-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ================= MENU DESKTOP ================= */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.navbar-menu li {
+  color: white;
+  cursor: pointer;
+  position: relative;
+  font-size: 15px;
+}
+
+.navbar-menu li::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #00ff88;
+  transition: 0.3s;
+}
+
+.navbar-menu li:hover::after {
+  width: 100%;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #00ff88;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ================================================= */
+/* ============ NAVBAR MOBILE FUTURISTE ============ */
+/* ================================================= */
+
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* ================= MENU MOBILE ================= */
+  .navbar-menu {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    z-index: 9999;
+    overflow: hidden;
+
+    /* 🎨 BACKGROUND SOLIDE MODERNE */
+    background:
+      radial-gradient(circle at top left, #00ff99 0%, transparent 35%),
+      radial-gradient(circle at bottom right, #004d2a 0%, transparent 40%),
+      linear-gradient(180deg, #050b08, #020403);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 44px;
+
+    transition: right 0.5s cubic-bezier(.22,1,.36,1);
+    perspective: 1200px;
+  }
+
+  .navbar-menu.active {
+    right: 0;
+  }
+  
+
+  /* ================================================= */
+  /* ================ SHAPES 3D ===================== */
+  /* ================================================= */
+
+  .navbar-menu::before,
+  .navbar-menu::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 🔮 ORBE 3D */
+  .navbar-menu::before {
+    width: 420px;
+    height: 420px;
+    top: -120px;
+    left: -120px;
+
+    background:
+      radial-gradient(circle at 30% 30%,
+        #ffffff,
+        #00ff99 40%,
+        rgba(0,255,153,0.25) 65%,
+        transparent 72%
+      );
+
+    border-radius: 50%;
+    filter: blur(18px);
+    animation: orb3DFloat 22s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
+  /* 🧊 CUBE HOLOGRAPHIQUE */
+  .navbar-menu::after {
+    width: 360px;
+    height: 360px;
+    bottom: -160px;
+    right: -140px;
+
+    background:
+      linear-gradient(135deg,
+        rgba(0,255,153,0.55),
+        rgba(0,255,153,0.05)
+      );
+
+    border-radius: 28px;
+    transform-style: preserve-3d;
+    filter: blur(8px);
+    animation: cubeRotate 28s linear infinite;
+  }
+
+  @keyframes orb3DFloat {
+    0%   { transform: translate3d(0,0,0) scale(1); }
+    50%  { transform: translate3d(80px,60px,120px) scale(1.2); }
+    100% { transform: translate3d(0,0,0) scale(1); }
+  }
+
+  @keyframes cubeRotate {
+    from {
+      transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+    }
+    to {
+      transform: rotateX(360deg) rotateY(360deg) translateZ(140px);
+    }
+  }
+
+  /* ================================================= */
+  /* ================= MENU ITEMS =================== */
+  /* ================================================= */
+
+  .navbar-menu li {
+    position: relative;
+    z-index: 2;
+
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+
+    color: transparent;
+    background:
+      linear-gradient(90deg,
+        #00ff99,
+        #eafff5,
+        #00ff99
+      );
+    background-size: 300% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    text-shadow:
+      0 0 20px rgba(0,255,153,0.5),
+      0 0 60px rgba(0,255,153,0.35);
+
+    animation: textFlow 4s linear infinite;
+    transition: transform 0.35s ease;
+  }
+
+  .navbar-menu li:hover {
+    transform: translateZ(40px) scale(1.18);
+  }
+
+  @keyframes textFlow {
+    from { background-position: 0% center; }
+    to   { background-position: 300% center; }
+  }
+
+  /* ================= UNDERLINE 3D ================= */
+  .navbar-menu li::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+
+    width: 200px;
+    height: 3px;
+
+    background:
+      linear-gradient(90deg,
+        transparent,
+        #00ff99,
+        transparent
+      );
+
+    box-shadow:
+      0 0 20px rgba(0,255,153,0.9),
+      0 0 50px rgba(0,255,153,0.6);
+
+    transition: transform 0.4s ease;
+  }
+
+  .navbar-menu li:hover::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+/* ================================================= */
+/* ============= SMALL MOBILE (≤480px) ============== */
+/* ================================================= */
+
+@media (max-width: 480px) {
+
+  .navbar-menu {
+    gap: 34px;
+  }
+
+  .navbar-menu::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .navbar-menu::after {
+    width: 280px;
+    height: 280px;
+  }
+
+  .navbar-menu li {
+    font-size: 1rem;
+    letter-spacing: 0.35em;
+  }
+
+  .navbar-menu li::after {
+    width: 140px;
+  }
+}

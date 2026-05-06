@@ -1,0 +1,60 @@
+/* ================= HERO VIDEO SECTION ================= */
+.hero-video-section {
+  position: relative;
+  width: 100%;       /* 🔥 prend exactement la largeur du parent / écran */
+  height: 100vh;     /* hauteur totale de l'écran */
+  padding-top: 70px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+}
+
+/* ================= VIDEO ================= */
+.hero-video {
+  width: 100%;       /* 🔥 prend exactement la largeur du parent */
+  height: 100%;      /* 🔥 prend toute la hauteur */
+  object-fit: cover; /* couvre tout l'écran sans laisser de bandes noires */
+  object-position: center;
+  display: block;
+}
+
+/* ================= OVERLAY ================= */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.6)
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 992px) {
+  .hero-video-section {
+    height: auto;       /* laisse le contenu déterminer la hauteur sur tablette */
+  }
+  .hero-video {
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;   /* vidéo complète, pas de coupe */
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .hero-video {
+    max-height: 70vh;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+  .hero-video {
+    max-height: 65vh;
+  }
+}

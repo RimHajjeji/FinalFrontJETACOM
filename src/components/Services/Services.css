@@ -1,0 +1,226 @@
+/* ==========================
+   SECTION SERVICES
+========================== */
+.services-section {
+  min-height: 100vh;
+  padding: 50px 8%;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================
+   TITRE SECTION
+========================== */
+.services-title {
+   font-size: 1.11rem;
+  letter-spacing: 0.35em;
+  font-weight: 500;
+  color: #06c36b;
+  margin-bottom: 40px;
+  text-align: center; 
+  position: relative; 
+  
+  /* CES LIGNES VONT FORCER LE TITRE À ÊTRE VISIBLE */
+  opacity: 1 !important; /* Force l'opacité à 1 */
+  transform: none !important; /* Supprime toute transformation qui pourrait le masquer */
+  filter: none !important; /* Supprime le blur qui pourrait être présent */
+  /* FIN DES LIGNES POUR FORCER LA VISIBILITÉ */
+
+  /* Tu peux commenter les lignes de transition pour le moment si tu veux */
+  /* transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s cubic-bezier(0.22, 1, 0.36, 1); */
+}
+
+
+
+.services-title.show {
+  opacity: 1;
+ transform: translateY(0);
+  filter: blur(0);
+}
+.services-title .underlineSER {
+  display: block;
+  width: 200px;
+  height: 3px;
+  margin: 18px auto 0 auto; 
+  background: linear-gradient(90deg, var(--primary), #000); 
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.6);
+}
+
+/* ==========================
+   GRID
+========================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+}
+
+@media (max-width: 1100px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 650px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================
+   CARTE SERVICE
+========================== */
+.service-card {
+  background: black;
+  border-radius: 24px;
+  padding: 45px 35px;
+  position: relative;
+  border: 1px solid rgba(0, 255, 120, 0.15);
+
+  opacity: 0;
+  transform: translateY(60px) scale(0.94);
+  transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ==========================
+   GLOW ANIMÉ
+========================== */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(0, 255, 120, 0.7),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  z-index: -1;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-14px) scale(1.04);
+  box-shadow: 0 0 50px rgba(0, 255, 120, 0.45);
+}
+
+/* ==========================
+   ICÔNE 3D
+========================== */
+.icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 255, 120, 0.12);
+  box-shadow: 0 0 28px rgba(0, 255, 120, 0.45);
+  transition: all 0.5s ease;
+}
+
+.icon svg {
+  width: 34px;
+  height: 34px;
+  color: #00ff78;
+}
+
+/* Animation 3D flottante */
+.icon-3d svg {
+  transform-style: preserve-3d;
+  animation: icon-float 3s ease-in-out infinite alternate,
+             icon-rotate 6s linear infinite;
+}
+
+@keyframes icon-float {
+  0%   { transform: translateY(0) rotateY(0deg) rotateZ(0deg); }
+  50%  { transform: translateY(-6px) rotateY(5deg) rotateZ(-3deg); }
+  100% { transform: translateY(0) rotateY(0deg) rotateZ(0deg); }
+}
+
+@keyframes icon-rotate {
+  0%   { transform: translateY(0) rotateY(0deg) rotateZ(0deg); }
+  50%  { transform: translateY(-3px) rotateY(180deg) rotateZ(2deg); }
+  100% { transform: translateY(0) rotateY(360deg) rotateZ(0deg); }
+}
+
+/* Icon hover */
+.service-card:hover .icon {
+  transform: rotate(10deg) scale(1.18);
+  box-shadow: 0 0 50px rgba(0, 255, 120, 0.85);
+}
+
+/* ==========================
+   TEXTE
+========================== */
+.service-card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 10px;
+  color: #00ff78;
+}
+
+.service-card h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+/* ==========================
+   BOUTON
+========================== */
+.service-card button {
+  background: transparent;
+  border: 1px solid #f3f9f6;
+  color: #06ef6f;
+  padding: 11px 26px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.35s ease;
+}
+
+.service-card button:hover {
+  background: #ecf7f1;
+  color: black;
+  box-shadow: 0 0 22px rgba(0, 255, 120, 0.7);
+}
+
+@media (min-width: 1101px) {
+  .services-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .service-card {
+    grid-column: span 2
+  }
+
+  /* Les 2 dernières cartes */
+  .service-card:nth-last-child(2) {
+    grid-column: 2 / span 2;
+  }
+
+  .service-card:last-child {
+    grid-column: 4 / span 2;
+  }
+}

@@ -1,0 +1,319 @@
+/* ================= ROOT VARIABLES (pour cohérence) ================= */
+/* TRÈS IMPORTANT : Si ces variables ne SONT PAS définies globalement dans App.css ou index.css,
+   elles DOIVENT être ici (ou dans un fichier CSS global que votre App charge en premier).
+   Si elles sont définies globalement, vous pouvez supprimer ce bloc ':root' d'ici. */
+:root {
+    --primary: #009e49; /* Vert JetaCom */
+    --dark: #0a0a0a;    /* Fond foncé */
+    --glass-effect: rgba(0, 158, 73, 0.15); /* Vert transparent pour l'effet verre */
+}
+
+/* ================= SECTION ================= */
+.values-section {
+  padding: 30px 8%; 
+  color: #fff;
+
+  overflow: hidden; 
+  position: relative; 
+  z-index: 1; 
+}
+
+
+/* ================= CONTAINER ================= */
+.values-container {
+  max-width: 1370px;
+  margin: auto;
+}
+
+/* ================= TITRES ================= */
+/* Utilise la classe 'show' ajoutée par l'IntersectionObserver */
+/* ================= TITRES ================= */
+.values-title {
+  
+  font-size: 1.11rem;;
+  letter-spacing: 0.35em;
+  font-weight: 500;
+  color: #06c36b; 
+  margin-bottom: 40px;
+  text-align: center; 
+  position: relative; 
+  
+  /* CES LIGNES VONT FORCER LE TITRE À ÊTRE VISIBLE */
+  opacity: 1 !important; /* Force l'opacité à 1 */
+  transform: none !important; /* Supprime toute transformation qui pourrait le masquer */
+  filter: none !important; /* Supprime le blur qui pourrait être présent */
+  /* FIN DES LIGNES POUR FORCER LA VISIBILITÉ */
+
+  /* Tu peux commenter les lignes de transition pour le moment si tu veux */
+  /* transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s cubic-bezier(0.22, 1, 0.36, 1); */
+}
+
+/* Le reste des règles CSS reste inchangé */
+/* Par exemple, la règle .values-title.show ne sera pas appliquée tant qu'on force l'opacité */
+.values-title.show { 
+  opacity: 1; /* Cette règle ne sera plus prioritaire à cause du !important ci-dessus */
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+
+.values-title.mission {
+  margin-top: 80px;
+}
+
+.values-title .underline {
+  display: block;
+  width: 200px;
+  height: 3px;
+  margin: 18px auto 0 auto; 
+  background: linear-gradient(90deg, var(--primary), #000); 
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.6);
+}
+
+/* ================= GRID ================= */
+.values-section .values-grid { 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 30px; 
+  align-items: stretch;
+  margin-bottom: 80px; 
+}
+
+/* ================= FLIP CARD CONTAINER ================= */
+.values-section .flip-card { 
+  background-color: transparent;
+  width: 100%;
+  height: 350px; 
+  perspective: 1000px; 
+}
+
+/* ================= FLIP CARD INNER (LA PARTIE QUI TOURNE) ================= */
+.values-section .flip-card-inner { 
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s ease; 
+  transform-style: preserve-3d; 
+  cursor: pointer;
+  border-radius: 20px; 
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.1); 
+}
+
+/* Rotation au survol */
+.values-section .flip-card:hover .flip-card-inner { 
+  transform: rotateY(180deg);
+  box-shadow: 0 0 50px rgba(0, 255, 136, 0.45); 
+}
+
+/* ================= RECTO ET VERSO DE LA CARTE ================= */
+.values-section .flip-card-front, 
+.values-section .flip-card-back { 
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden; 
+  border-radius: 20px; 
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px; 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+/* STYLES SPÉCIFIQUES AU RECTO (NOUVEAU DESIGN GLASSMORPHE) */
+.values-section .flip-card-front { 
+  background: var(--glass-effect); 
+  backdrop-filter: blur(10px); 
+  border: 1px solid rgba(0, 158, 73, 0.3); 
+  box-shadow: inset 0 0 20px rgba(0, 158, 73, 0.4);
+  
+  color: white; 
+  background-image: none; 
+  background-color: transparent; 
+}
+
+/* Styles spécifiques au verso */
+.values-section .flip-card-back { 
+  background: linear-gradient(135deg, #050505, #111);
+  transform: rotateY(180deg); 
+  border: 1px solid var(--primary); 
+  box-shadow: 0 0 30px rgba(0, 158, 73, 0.2); 
+  color: #ccc;
+}
+
+.values-section .flip-card-back h3 { 
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 1.45rem;
+}
+
+.values-section .flip-card-back p { 
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* ================= HEADER (utilisé sur le recto) ================= */
+.values-section .card-header { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* ================= CERCLE D'ICÔNE (harmonisation avec glassmorphism) ================= */
+.values-section .icon-circle { 
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 20px rgba(0, 158, 73, 0.4), 
+    inset 0 0 10px rgba(0, 158, 73, 0.3); 
+  margin-bottom: 15px;
+}
+
+/* ================= ICON 3D (SEULE L’ICONE TOURNE) ================= */
+.values-section .card-icon { 
+  font-size: 2rem;
+  color: var(--primary); 
+  transform-style: preserve-3d;
+  animation:
+    icon-float 3s ease-in-out infinite alternate,
+    icon-rotate 6s linear infinite;
+}
+
+/* Animations (inchangées) */
+@keyframes icon-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-6px); }
+}
+
+@keyframes icon-rotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* ================= TEXTES sur le recto (s'assurer de la lisibilité) ================= */
+.values-section .flip-card-front h3 { 
+  font-size: 1.45rem;
+  color: white; 
+  margin-bottom: 10px;
+}
+
+.values-section .flip-card-front p { 
+  font-size: 1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  color: white; 
+}
+
+/* ================= MISSIONS ================= */
+.values-section .missions-list { 
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.values-section .mission-item { 
+  /* AOS gère l'animation d'apparition */
+}
+
+.values-section .mission-content { 
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.values-section .mission-content:hover { 
+  transform: scale(1.03);
+  background: rgba(0, 255, 136, 0.08);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
+}
+
+.values-section .mission-content p { 
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.values-section .mission-content strong { 
+  color: var(--primary);
+}
+
+/* ================= FLÈCHE ================= */
+.values-section .arrow { 
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-top: 4px;
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.7);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:900px) {
+  .values-section .values-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+  }
+  .values-section .flip-card { height: 320px; }
+  .values-section .flip-card-front, .values-section .flip-card-back { padding: 25px 20px; }
+  .values-section .flip-card-front h3, .values-section .flip-card-back h3 { font-size: 1.25rem; }
+  .values-section .flip-card-front p, .values-section .flip-card-back p { font-size: 0.95rem; }
+  .values-section .missions-list { gap: 20px; }
+  .values-section .values-title { margin-bottom: 30px; }
+  .values-section .values-title.mission { margin-top: 60px; }
+}
+
+@media (max-width:500px) {
+    .values-section { padding: 60px 5%; }
+    .values-section .values-title {
+        font-size: 0.9rem;
+        letter-spacing: 0.2em;
+        padding: 10px 25px;
+    }
+    .values-section .values-title .underline {
+        width: 100px;
+        margin-top: 15px;
+    }
+    .values-section .icon-circle {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+    .values-section .card-icon {
+        font-size: 1.6rem;
+    }
+    .values-section .flip-card {
+        height: 280px;
+    }
+    .values-section .flip-card-front h3, .values-section .flip-card-back h3 {
+        font-size: 1.1rem;
+    }
+    .values-section .flip-card-front p, .values-section .flip-card-back p {
+        font-size: 0.9rem;
+    }
+    .values-section .mission-content p {
+        font-size: 0.9rem;
+    }
+    .values-section .card-header {
+        margin-bottom: 15px;
+    }
+    .values-section .arrow {
+        font-size: 1rem;
+        margin-top: 2px;
+    }
+}
