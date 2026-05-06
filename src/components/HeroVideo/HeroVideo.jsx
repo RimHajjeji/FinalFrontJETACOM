@@ -14,8 +14,8 @@ export default function HeroVideo({ start }) {
       const isMobile = window.innerWidth <= 992;
 
       const newSrc = isMobile
-        ? "https://res.cloudinary.com/dxqhtnz97/video/upload/f_auto,q_auto/TEASERF-Responsive_bkih7n.mp4"
-        : "https://res.cloudinary.com/dxqhtnz97/video/upload/f_auto,q_auto/TEASERF_sx8ioi.mp4";
+        ? "https://res.cloudinary.com/dxqhtnz97/video/upload/v1778064136/TEASERF-Responsive_ptdpfk.mp4"
+        : "https://res.cloudinary.com/dxqhtnz97/video/upload/v1778063874/TEASERF_xuoktk.mp4";
 
       setVideoSrc(newSrc);
     };
