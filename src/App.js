@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 
 /* ===== SITE PUBLIC ===== */
+import Offers from "./components/Offers/Offers";
 import Contacts from "./admin/pages/Contacts";
 import NetworkBackground from "./components/Background/NetworkBackground";
 import Navbar from "./components/Navbar/Navbar";
@@ -49,6 +50,7 @@ function ForceHomeOnReload() {
   return null;
 }
 
+/* 🎥 Scroll direct vers Hero */
 function ScrollToHeroOnLoad() {
   const location = useLocation();
 
@@ -70,6 +72,7 @@ function ScrollToHeroOnLoad() {
 /* ================= APP ================= */
 
 function App() {
+
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -82,6 +85,7 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
 
+        {/* 🔒 UTILITAIRES */}
         <ForceHomeOnReload />
         <ScrollToHeroOnLoad />
 
@@ -104,10 +108,12 @@ function App() {
                 <div id="hero">
                   <HeroVideo start={true} />
                 </div>
-                <Welcome appReady={true} />
+
+                <Welcome />
                 <Values />
                 <LaunchSection />
                 <Services />
+                <Offers />
                 <ContactSection />
                 <Footer />
               </>
