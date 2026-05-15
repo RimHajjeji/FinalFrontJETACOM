@@ -5,7 +5,7 @@ export default function Contacts() {
   const [contacts, setContacts] = useState([]);
 
 useEffect(() => {
-  fetch(`${process.env.REACT_APP_API_URL}/api/admin/contacts`, {
+  fetch(`/api/admin/contacts`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
     },
