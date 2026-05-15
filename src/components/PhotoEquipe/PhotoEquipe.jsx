@@ -96,7 +96,7 @@ function PhotoEquipe() {
         <div className="photo-description">
 
           <span className="small-title">
-            TEAM AGENCY
+            Nos spécialistes
           </span>
 
           <h3>
