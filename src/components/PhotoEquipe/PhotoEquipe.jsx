@@ -3,35 +3,47 @@ import "./PhotoEquipe.css";
 
 const teamPhotos = [
   {
-    image: "/assets/equipe1.jpg",
-    title: "Direction Créative",
+    image: "/assets/Responsable Marketing.jpg",
+    title: "Responsable Marketing",
     description:
-      "Notre équipe créative imagine des concepts modernes et puissants pour valoriser votre marque."
+      "Stratégies marketing modernes pour développer votre visibilité."
   },
   {
-    image: "/assets/equipe2.jpg",
-    title: "Production Photo & Vidéo",
+    image: "/assets/Responsable Digital.jpg",
+    title: "Responsable Digital",
     description:
-      "Des shootings professionnels et des vidéos premium pour donner vie à vos projets."
+      "Gestion des réseaux sociaux et communication digitale."
   },
   {
-    image: "/assets/equipe3.jpg",
-    title: "Marketing Digital",
+    image: "/assets/equipe developpement mobile et web.jpg",
+    title: "Développement Web & Mobile",
     description:
-      "Nous développons votre visibilité sur les réseaux sociaux avec des stratégies performantes."
+      "Création de sites web et applications performantes."
+  },
+  {
+    image: "/assets/Responsable relation public.jpg",
+    title: "Relation Public",
+    description:
+      "Gestion de l’image et communication avec votre audience."
+  },
+  {
+    image: "/assets/Infographe.jpg",
+    title: "Infographe",
+    description:
+      "Design graphique moderne et contenus visuels professionnels."
   }
 ];
 
 function PhotoEquipe() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto slide
+  // Auto Slide
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) =>
         prev === teamPhotos.length - 1 ? 0 : prev + 1
       );
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -64,6 +76,7 @@ function PhotoEquipe() {
 
         {/* IMAGE */}
         <div className="photo-slider">
+
           <img
             src={teamPhotos[currentIndex].image}
             alt={teamPhotos[currentIndex].title}
@@ -81,13 +94,20 @@ function PhotoEquipe() {
 
         {/* DESCRIPTION */}
         <div className="photo-description">
-          <span className="small-title">TEAM AGENCY</span>
 
-          <h3>{teamPhotos[currentIndex].title}</h3>
+          <span className="small-title">
+            TEAM AGENCY
+          </span>
 
-          <p>{teamPhotos[currentIndex].description}</p>
+          <h3>
+            {teamPhotos[currentIndex].title}
+          </h3>
 
-          {/* Points */}
+          <p>
+            {teamPhotos[currentIndex].description}
+          </p>
+
+          {/* DOTS */}
           <div className="dots">
             {teamPhotos.map((_, index) => (
               <span
@@ -99,8 +119,8 @@ function PhotoEquipe() {
               ></span>
             ))}
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );

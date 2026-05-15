@@ -1,29 +1,31 @@
 .photo-equipe-section {
   width: 100%;
-  padding: 100px 8%;
+  padding: 70px 6%;
   color: white;
 }
 
 /* TITRE */
 .photo-equipe-header {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 45px;
 }
 
 .photo-equipe-header h2 {
-  font-size: 1.1rem;
-  letter-spacing: 0.4em;
+  font-size: 1rem;
+  letter-spacing: 0.35em;
   font-weight: 500;
   color: #06c36b;
 }
 
 .photo-line {
   display: block;
-  width: 240px;
+  width: 180px;
   height: 3px;
-  margin: 18px auto 0;
+  margin: 15px auto 0;
+
   background: linear-gradient(90deg, #06c36b, #000);
-  box-shadow: 0 0 18px rgba(0, 255, 136, 0.5);
+
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.5);
 }
 
 /* CONTAINER */
@@ -31,53 +33,57 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 80px;
+  gap: 45px;
 
-  max-width: 1300px;
+  max-width: 1100px;
   margin: auto;
 }
 
-/* IMAGE */
+/* SLIDER */
 .photo-slider {
   position: relative;
-  width: 600px;
-  height: 700px;
+
+  width: 520px;
+  height: 540px;
+
   overflow: hidden;
-  border-radius: 30px;
+  border-radius: 24px;
+
   flex-shrink: 0;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .photo-slider img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 
-  transition: 0.6s ease;
+  transition: 0.5s ease;
 }
 
 /* DESCRIPTION */
 .photo-description {
-  max-width: 500px;
+  max-width: 420px;
 }
 
 .small-title {
   color: #06c36b;
-  letter-spacing: 4px;
-  font-size: 13px;
+  letter-spacing: 3px;
+  font-size: 12px;
   text-transform: uppercase;
 }
 
 .photo-description h3 {
-  font-size: 3rem;
-  margin: 20px 0;
-  line-height: 1.1;
+  font-size: 2.1rem;
+  margin: 16px 0;
+  line-height: 1.2;
 }
 
 .photo-description p {
-  font-size: 16px;
-  line-height: 1.9;
+  font-size: 15px;
+  line-height: 1.7;
   opacity: 0.8;
 }
 
@@ -88,16 +94,16 @@
   top: 50%;
   transform: translateY(-50%);
 
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
 
   border: none;
   border-radius: 50%;
 
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.45);
   color: white;
 
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
 
   transition: 0.3s ease;
@@ -109,51 +115,52 @@
 }
 
 .prev-btn {
-  left: 20px;
+  left: 15px;
 }
 
 .next-btn {
-  right: 20px;
+  right: 15px;
 }
 
 /* DOTS */
 .dots {
   display: flex;
-  gap: 12px;
-  margin-top: 35px;
+  gap: 10px;
+  margin-top: 25px;
 }
 
 .dot {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 
   border-radius: 50%;
 
   background: rgba(255, 255, 255, 0.3);
 
   cursor: pointer;
+
   transition: 0.3s ease;
 }
 
 .dot.active {
   background: #06c36b;
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 /* TABLETTE */
 @media (max-width: 1024px) {
 
   .photo-equipe-container {
-    gap: 50px;
+    gap: 35px;
   }
 
   .photo-slider {
-    width: 450px;
-    height: 560px;
+    width: 360px;
+    height: 430px;
   }
 
   .photo-description h3 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -161,19 +168,18 @@
 @media (max-width: 768px) {
 
   .photo-equipe-section {
-    padding: 70px 20px;
+    padding: 60px 20px;
   }
 
   .photo-equipe-container {
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
   }
 
   .photo-slider {
     width: 100%;
-    max-width: 360px;
-    height: 480px;
-    border-radius: 24px;
+    max-width: 320px;
+    height: 390px;
   }
 
   .photo-description {
@@ -182,12 +188,11 @@
   }
 
   .photo-description h3 {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   .photo-description p {
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: 14px;
   }
 
   .dots {
@@ -196,9 +201,9 @@
 
   .prev-btn,
   .next-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
   }
 }
 
@@ -206,14 +211,16 @@
 @media (max-width: 480px) {
 
   .photo-slider {
-    height: 430px;
+    max-width: 290px;
+    height: 340px;
   }
 
   .photo-description h3 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .photo-description p {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.6;
   }
 }
