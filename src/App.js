@@ -16,6 +16,7 @@ import Contacts from "./admin/pages/Contacts";
 import NetworkBackground from "./components/Background/NetworkBackground";
 import Navbar from "./components/Navbar/Navbar";
 import Services from "./components/Services/Services";
+import PhotoEquipe from "./components/PhotoEquipe/PhotoEquipe";
 import Welcome from "./components/Welcome/Welcome";
 import CustomCursor from "./components/Cursor/CustomCursor";
 import DroneService from "./pages/DroneService";
@@ -113,6 +114,7 @@ function App() {
                 <Values />
                 <LaunchSection />
                 <Services />
+                <PhotoEquipe />
                 <Offers />
                 <ContactSection />
                 <Footer />
