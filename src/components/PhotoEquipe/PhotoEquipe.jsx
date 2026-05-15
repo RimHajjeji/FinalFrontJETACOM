@@ -28,7 +28,7 @@ const teamPhotos = [
   },
   {
     image: "/assets/Infographe.jpg",
-    title: "Infographe",
+    title: "Graphiste/cadreur",
     description:
       "Design graphique moderne et contenus visuels professionnels."
   }
