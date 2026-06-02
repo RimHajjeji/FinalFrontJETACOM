@@ -13,11 +13,11 @@ export default function HeroVideo({ start }) {
     const updateVideoSource = () => {
       const isMobile = window.innerWidth <= 992;
 
-      const newSrc = isMobile
-        ? "https://res.cloudinary.com/dxqhtnz97/video/upload/f_auto,q_auto,so_0/v1778064136/TEASERF-Responsive_ptdpfk.mp4"
-        : "https://res.cloudinary.com/dxqhtnz97/video/upload/f_auto,q_auto,so_0/v1778063874/TEASERF_xuoktk.mp4";
+    const newSrc = isMobile
+  ? "https://res.cloudinary.com/dwqfkvcjn/video/upload/v1780392188/TEASERF-Responsive_ejmayg.mp4"
+  : "https://res.cloudinary.com/dwqfkvcjn/video/upload/v1780391873/TEASERF_jnlz6l.mp4";
 
-      setVideoSrc(newSrc);
+setVideoSrc(newSrc);
     };
 
     updateVideoSource();
